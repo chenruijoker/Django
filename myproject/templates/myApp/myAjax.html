@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<h1>ajax请求实例</h1>
+
+<button id="bt">发送请求</button>
+
+</body>
+<script>
+    $("#bt").click(function(){
+        $.ajax({
+            type:"get",
+            url:"/getallstudentinfo/",
+            success:function(res){
+                console.log(res);
+                var rp=res.res;
+                for(var i=0;i<rp.length;i++){
+                    document.write('<span>'+rp[i][0]+' &nbsp<span>');
+                }
+            }
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>富文本</title>
+    <!--下面那个甭管有没有资源，放上去就是了-->
+    <script src="/static/tiny_mce/tiny_mce.js"></script>
+    <script>
+        tinyMCE.init({
+            'mode':'textareas',
+            'theme':'advanced',
+            'width':600,
+            'height':400,
+        });
+    </script>
+</head>
+<body>
+<form action="/savetinymce/" method="post">
+    {% csrf_token %}
+    <textarea name="str">
+        有点疲
+    </textarea>
+    <input type="submit" value="上传">
+
+
+</form>
+</body>
+</html>

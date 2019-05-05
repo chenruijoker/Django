@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图片功能</title>
+</head>
+<body>
+表单上上传文件需要添加enctype="multipart/form-data"
+<form action="/savefile/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="file">
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>

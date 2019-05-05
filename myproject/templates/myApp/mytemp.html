@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板</title>
+</head>
+<body>
+<h1>模板页教学</h1>
+<ul>
+    {% for stu in stus %}
+    <li>{{stu.sname}}--{{stu.sage}}--{{ forloop.counter}}</li>
+
+    {% empty %}
+    <li>没有数据</li>
+    {% endfor %}
+</ul>
+{% if num %}
+<div>显示num</div>
+{% endif%}
+
+{% ifequal shu1 shu2%}
+<p>shu1==shu2</p>
+{% endifequal %}
+
+{% comment %}
+<p>这只是个注释而已，没有任何作用</p>
+{% endcomment%}
+
+<p>下面是过滤器</p>
+<p>{{ str | upper}}</p>
+<p>{{ str }}</p>
+<p>{{ list | join:'#' }}</p>
+<p>因为没有test这个变量，所以会显示为{{ test | default:'没有变量'}}</p>
+
+<p>下面是反向解析url</p>
+<p><a href="{% url 'jojo:ff' %}">连接</a></p>
+
+
+
+</body>
+</html>

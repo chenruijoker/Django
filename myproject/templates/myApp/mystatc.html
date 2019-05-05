@@ -1,0 +1,34 @@
+<!--{% load static from staticfiles %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态文件</title>
+    <link rel="stylesheet" href="/static/css/my.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/vue.js"></script>
+    <!--下面是另一种导入静态文件的方法，别忘了顶层部分要使用load static from staticfiles
+    这样的好处就是能够无视掉静态文件目录名更改导致的多处html路径修改的问题-->
+    <script src="{% static 'js/vue.js' %}"></script>
+</head>
+<body>
+<div id="app">测试css文件导入</div>
+<button id="bt">测试js文件导入</button>
+<div id="my">niubi {{ ok }} </div>
+<script>
+
+var v=new Vue({
+    el:"#my",
+    data:{
+        ok:"可以"
+    }
+});
+
+    $("#bt").click(function()
+        {
+            alert(123);
+        }
+    );
+</script>
+</body>
+</html>
